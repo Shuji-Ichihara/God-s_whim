@@ -7,7 +7,7 @@ public class FieldGenerateManager : MonoBehaviour
     #region Fields
     // フィールドの種類
     [SerializeField]
-    private GameObject[] _fieldObjects = { };
+    private Field[] _fieldObjects = { };
     // フィールドオブジェクトがカメラ外に移動する秒数
     public float ScrollTime => _baseScrollTime;
     [SerializeField]
@@ -20,18 +20,24 @@ public class FieldGenerateManager : MonoBehaviour
     void Start()
     {
         _scrollTime = _baseScrollTime;
-        int firstGenerateFieldCount = 2;
+        int firstGenerateFieldCount = 3;
         for (int i = 0; i < firstGenerateFieldCount; i++)
         {
             switch (i)
             {
                 case 0:
-                    Instantiate(_fieldObjects[0], Vector3.zero, Quaternion.identity);
+                    var firstField = Instantiate(_fieldObjects[0].gameObject
+                                               , Vector3.down * Common.StandardValue
+                                               , Quaternion.identity)
+                                    .GetComponent<Field>();
+                    firstField.MoveFieldWrap(_baseScrollTime);
                     break;
                 case 1:
-                    Instantiate(_fieldObjects[0]
-                               , new Vector3(Common.StandardValue * 6f, -Common.StandardValue, 0f)
-                               , Quaternion.identity);
+                    var secondField = Instantiate(_fieldObjects[0].gameObject
+                                               , new Vector3(Common.StandardValue * Common.FieldWidth, -Common.StandardValue, 0f)
+                                               , Quaternion.identity)
+                                    .GetComponent<Field>();
+                    secondField.MoveFieldWrap(_baseScrollTime);
                     break;
                 default:
                     break;
@@ -47,6 +53,7 @@ public class FieldGenerateManager : MonoBehaviour
         if (_scrollTime < 0f)
         {
             GenerateField();
+            _scrollTime = _baseScrollTime;
         }
     }
 
@@ -55,10 +62,12 @@ public class FieldGenerateManager : MonoBehaviour
     /// </summary>
     private void GenerateField()
     {
-        var randomNum = Random.Range(0, _fieldObjects.Length);
-        Instantiate(_fieldObjects[randomNum]
-                   , new Vector3(Common.StandardValue * 6f, -Common.StandardValue, 0f)
-                   , Quaternion.identity);
+        int randomNum = Random.Range(0, _fieldObjects.Length);
+        var field = Instantiate(_fieldObjects[randomNum]
+                               , new Vector3(Common.StandardValue * Common.FieldWidth, -Common.StandardValue, 0f)
+                               , Quaternion.identity)
+                    .GetComponent<Field>();
+        field.MoveFieldWrap(_baseScrollTime);
     }
 
 }
