@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class BackButtonController : MonoBehaviour
 {
+    //シーンチェンジスクリプト
+    [SerializeField]
+    private SceneChange _sceneChange;
     //表示用のUI
     [SerializeField]
     private Image[] _turtrialImages;
@@ -19,6 +22,7 @@ public class BackButtonController : MonoBehaviour
         else
         {
             //タイトルシーンに遷移
+            _sceneChange.SceneChanges();
         }
     }
 }
