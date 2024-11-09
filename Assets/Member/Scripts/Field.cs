@@ -13,11 +13,10 @@ public class Field : MonoBehaviour
     private async UniTask MoveField(float moveTime, CancellationTokenSource cts)
     {
         // アタッチされているフィールドオブジェクトを破棄する座標
-        float deleteCoodinateX = -20f;
+        float deleteCoodinateX = -23f;
         while (transform.position.x > deleteCoodinateX)
         {
             // -方向に移動させる為、Vector3.leftを使用。
-            //transform.position += Vector3.left * (generateCoodinateX * 2f / moveTime) * Time.deltaTime;
             transform.position += Vector3.left * (Common.StandardValue * Common.FieldWidth / moveTime) * Time.deltaTime;
             await UniTask.Yield(cancellationToken: cts.Token);
         }
