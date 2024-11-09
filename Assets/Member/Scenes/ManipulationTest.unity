@@ -280,7 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57a6a1ff33fbce49afb7ca686381bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fieldObjects: []
+  _fieldObjects:
+  - {fileID: -4001271276828233587, guid: ff62299d55284dc47b6efb24551d7d29, type: 3}
+  - {fileID: -8272080203282169894, guid: 30f6ede8d6386344ea1220acbb621c8a, type: 3}
+  - {fileID: -3052249937786816352, guid: 511cba7afea9f3b4a94f39361c26bb04, type: 3}
+  - {fileID: 8326507289208822066, guid: 77d414e5d08eb5c41bdbd40bc99e0f1a, type: 3}
   _baseScrollTime: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
