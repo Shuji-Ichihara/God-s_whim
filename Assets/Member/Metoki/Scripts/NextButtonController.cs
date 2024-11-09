@@ -8,17 +8,6 @@ public class NextButtonController : MonoBehaviour
     //•\Ž¦—p‚ÌUI
     [SerializeField]
     private Image[] _turtrialImages;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OnClick()
     {
         if (_turtrialImages[0].enabled)
