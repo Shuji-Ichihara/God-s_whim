@@ -26,18 +26,16 @@ public class FieldGenerateManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    var firstField = Instantiate(_fieldObjects[0].gameObject
+                    var firstField = Instantiate(_fieldObjects[0]
                                                , Vector3.down * Common.StandardValue
-                                               , Quaternion.identity)
-                                    .GetComponent<Field>();
-                    firstField.MoveFieldWrap(_baseScrollTime);
+                                               , Quaternion.identity);
+                    firstField.ScrollFieldWrap(_baseScrollTime);
                     break;
                 case 1:
-                    var secondField = Instantiate(_fieldObjects[0].gameObject
+                    var secondField = Instantiate(_fieldObjects[0]
                                                , new Vector3(Common.StandardValue * Common.FieldWidth, -Common.StandardValue, 0f)
-                                               , Quaternion.identity)
-                                    .GetComponent<Field>();
-                    secondField.MoveFieldWrap(_baseScrollTime);
+                                               , Quaternion.identity);
+                    secondField.ScrollFieldWrap(_baseScrollTime);
                     break;
                 default:
                     break;
@@ -65,9 +63,8 @@ public class FieldGenerateManager : MonoBehaviour
         int randomNum = Random.Range(0, _fieldObjects.Length);
         var field = Instantiate(_fieldObjects[randomNum]
                                , new Vector3(Common.StandardValue * Common.FieldWidth, -Common.StandardValue, 0f)
-                               , Quaternion.identity)
-                    .GetComponent<Field>();
-        field.MoveFieldWrap(_baseScrollTime);
+                               , Quaternion.identity);
+        field.ScrollFieldWrap(_baseScrollTime);
     }
 
 }
