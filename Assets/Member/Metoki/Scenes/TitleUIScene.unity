@@ -256,6 +256,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
+--- !u!114 &178162687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2519152266601884723, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
+  m_PrefabInstance: {fileID: 178162686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e5082d1ca3f834d8868b46bd6d4017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &324651974
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +761,7 @@ GameObject:
   - component: {fileID: 1083018120}
   - component: {fileID: 1083018119}
   - component: {fileID: 1083018118}
+  - component: {fileID: 1083018122}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -836,8 +848,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NextButtonController, Assembly-CSharp
+      - m_Target: {fileID: 1083018122}
+        m_TargetAssemblyTypeName: TitleButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -886,6 +898,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083018115}
   m_CullTransparentMesh: 1
+--- !u!114 &1083018122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083018115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df81814c38eb6cf42beef4ac22a04631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneChange: {fileID: 178162687}
+  _turtrialImages: []
 --- !u!1 &1693151566
 GameObject:
   m_ObjectHideFlags: 0
