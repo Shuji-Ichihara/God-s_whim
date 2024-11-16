@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8177969bb0178f459f616441c8fa9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hourHand: {fileID: 142386319}
-  _routationDuration: 5
+  cycleTime: 5
+  _stopWatchTime: 5
 --- !u!1 &434276207
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,90 +4,131 @@ using UnityEngine;
 
 public class WatchUIController : MonoBehaviour
 {
-    //時計の貼り
+
+    public float cycleTime = 5f; // 半時計回りで一周する時間
+
+    private float maxReverseTime = 5f; // 最大反時計回り時間
+
+    private float reverseElapsedTime = 0f; // ボタンを押していた時間
+
+    private bool isReversing = false; // 半時計回り中かどうか
+
+    private bool isReturning = false; // 戻る途中かどうか
+
+    private float returnElapsedTime = 0f; // 時計回りで戻る際の経過時間
+
+    private float startAngle; // 時計回りで戻る開始時の角度
+
+    private float targetAngle; // 時計回りで戻る目標角度
+
+    private float returnTime; // ボタンを押した時間を基準に戻る時間
+
     [SerializeField]
-    private Transform _hourHand;
-
-    //一周にかかる時間
+    private float _stopWatchTime;
     [SerializeField]
-    private float _routationDuration;
-    //記録する時間
-    [SerializeField]
-    private float _recordDuration;
-
-    private List<ClockHnadState> stateHistry = new List<ClockHnadState>();
-
-    //巻き戻し中かどうか
-    private bool _isRewdining = false;
-
-    //回転の経過時間
-    [SerializeField]
-    private float _elppsedRotateionTime;
-
-
-    //記録用の構造体
-    private struct ClockHnadState
-    {
-        public Quaternion _rotation;
-
-        public ClockHnadState(Quaternion rot)
-        {
-            _rotation = rot;
-        }
-    }
-    // Start is called before the first frame update
+    private bool stopTime = false;
     void Start()
     {
-        //最初針の位置を12時に固定
-        _hourHand.localRotation = Quaternion.Euler(0, 0, 0);
+        // 初期位置の回転を保持
+        targetAngle = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(stopTime)
         {
-            _isRewdining = true;
-        }
-        else if(Input.GetKeyUp(KeyCode.R))
-        {
-            _isRewdining = false;
-        }
+            //現状はRキーだが、時を止めている状態を表すフラグ等に変更予定
+            if (Input.GetKeyDown(KeyCode.R) && !isReturning)
+            {
+                StartReversing();
+            }
 
-        if(_isRewdining)
-        {
-            Rwind();
+            if (Input.GetKeyUp(KeyCode.R) && !isReturning)
+            {
+                StartReturning();
+            }
+
+            if (isReversing)
+            {
+                ReverseRotation();
+            }
+
+            else if (isReturning)
+            {
+                ReturnToInitialPosition();
+            }
+
+            if (cycleTime == maxReverseTime)
+            {
+                stopTime = true;
+                StartCoroutine(StopTimer());
+            }
         }
-        else
-        {
-            Record();
-            RotateHand();
-        }
+        
     }
 
-    void RotateHand()
+    void StartReversing()
     {
-        float elpsedTime = 0;
-        while (elpsedTime < _routationDuration)
+        isReversing = true;
+        isReturning = false;
+        reverseElapsedTime = 0f; // 経過時間をリセット
+    }
+
+    void StartReturning()
+    {
+        isReversing = false;
+
+        isReturning = true;
+
+        returnElapsedTime = 0f; // 経過時間をリセット
+
+        // 現在の針の角度を計算
+
+        startAngle = transform.localEulerAngles.z;
+
+        // ボタンを押していた時間分を元の位置に戻る時間として設定
+
+        returnTime = Mathf.Clamp(reverseElapsedTime, 0f, maxReverseTime);
+
+        if(startAngle > targetAngle)
         {
-            //経過時間に基づいて針を回転させる
-            float angle = (elpsedTime /  _routationDuration) * 360f;
-            _hourHand.localRotation = Quaternion.Euler(0, 0, -angle);
+                targetAngle += 360f;
+        }
 
-            elpsedTime += Time.deltaTime;
-            //yield return null;
-       }
-        //5秒後に時計の針を一周させて終了
-        _hourHand.localRotation = Quaternion.Euler(0, 0, -360f);
     }
 
-    void Rwind()
+    void ReverseRotation()
     {
-
+        // 反時計回りの進行度を計算
+        reverseElapsedTime += Time.deltaTime;
+        float progress = Mathf.Clamp(reverseElapsedTime / cycleTime, 0f, 1f); // 進行度（0-1）
+        float angle = progress * 360f; // 半時計回りの角度
+        transform.localRotation = Quaternion.Euler(0, 0, -angle); // 反時計回りに回転
     }
 
-    void Record()
+    void ReturnToInitialPosition()
     {
+        // 経過時間を更新
+        returnElapsedTime += Time.deltaTime;
+        // 時計回りの進行度を計算
+        float progress = Mathf.Clamp01(returnElapsedTime / returnTime); // 進行度（0-1）
+        float currentAngle = Mathf.LerpAngle(startAngle, targetAngle, progress); // 線形補間で現在の角度を計算
+        transform.localRotation = Quaternion.Euler(0, 0, currentAngle);
+        // 目標角度に到達したら処理を終了
+        if (Mathf.Approximately(progress, 1f))
+        {
+            isReturning = false;
+        }
 
     }
-}
+
+    IEnumerator StopTimer()
+    {
+        yield return new WaitForSeconds(_stopWatchTime);
+        stopTime = false;
+    }
+
+} 
+
+
+
