@@ -35,8 +35,7 @@ public class WatchUIController : MonoBehaviour
 
     void Update()
     {
-        if(stopTime)
-        {
+
             //現状はRキーだが、時を止めている状態を表すフラグ等に変更予定
             if (Input.GetKeyDown(KeyCode.R) && !isReturning)
             {
@@ -63,7 +62,7 @@ public class WatchUIController : MonoBehaviour
                 stopTime = true;
                 StartCoroutine(StopTimer());
             }
-        }
+        
         
     }
 
