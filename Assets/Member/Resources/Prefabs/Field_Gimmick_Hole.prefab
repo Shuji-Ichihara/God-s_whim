@@ -1115,7 +1115,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1324156526, guid: 5d2e9979fdef5814b88986488e9f2709, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2718,7 +2718,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1324156526, guid: 5d2e9979fdef5814b88986488e9f2709, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3447,6 +3447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6541624821143561828}
   - component: {fileID: 4840206566211901510}
+  - component: {fileID: 8262679623517855824}
   m_Layer: 0
   m_Name: Gimmick
   m_TagString: Untagged
@@ -3516,6 +3517,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 1.4}
   m_EdgeRadius: 0
+--- !u!114 &8262679623517855824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712361651648493271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98452cd922d06624787238a79a6860de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6962439417851075316
 GameObject:
   m_ObjectHideFlags: 0

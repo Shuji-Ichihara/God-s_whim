@@ -2095,6 +2095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8870854270536137887}
   - component: {fileID: 7539443952112187296}
+  - component: {fileID: 37975139720984853}
   m_Layer: 0
   m_Name: Gimmick
   m_TagString: Untagged
@@ -2170,6 +2171,18 @@ PolygonCollider2D:
       - {x: -1.6, y: -3.2}
       - {x: 1.6, y: -3.2}
   m_UseDelaunayMesh: 0
+--- !u!114 &37975139720984853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727917362599945179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98452cd922d06624787238a79a6860de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2958023005143241428
 GameObject:
   m_ObjectHideFlags: 0
