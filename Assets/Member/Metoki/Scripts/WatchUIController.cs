@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class WatchUIController : MonoBehaviour
 {
 
-    public float rotationDuration = 5f; // 一周するのにかかる時間
+    [SerializeField]
+    private float rotationDuration = 5f; // 一周するのにかかる時間
     [SerializeField]
     private GameObject _explsionEffect; // パーティクルエフェクト
-    public Image clockImage; // 変更する時計の画像
-    public Sprite changedClockSprite; // 変更後の時計画像
-    public Sprite originalClockSprite; // 元の時計画像
+    [SerializeField]
+    private Image clockImage; // 変更する時計の画像
+    [SerializeField]
+    private Sprite changedClockSprite; // 変更後の時計画像
+    [SerializeField]
+    private Sprite originalClockSprite; // 元の時計画像
 
     private float initialAngle; // 初期の針の角度
     private float rotationSpeed; // 針の回転速度
@@ -31,9 +35,11 @@ public class WatchUIController : MonoBehaviour
         // クールダウン中は何もしない
         if (isCooldown) return;
 
-        bool isRKeyPressed = Input.GetKey(KeyCode.R);
+        //↓現在はRキーを押すのが条件ですが、ここを変更すれば条件を変えることが出来ます。
+        //bool _timeStop = (読み込ませたいフラグ);
+        bool _timeStop = Input.GetKey(KeyCode.R);
 
-        if (isRKeyPressed)
+        if (_timeStop)
         {
             // Rキーを押している間、時計回りに回転
             transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
