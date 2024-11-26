@@ -21,6 +21,7 @@ public class BackButtonController : MonoBehaviour
         }
         else
         {
+            _sceneChange._backButton = true;
             //タイトルシーンに遷移
             _sceneChange.SceneChanges();
         }

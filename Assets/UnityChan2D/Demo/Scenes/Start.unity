@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351b82b605ec74111a4cf942e0ca07bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Loading 1-1
+  nextLevel: TitleUIScene
   enter: 120
 --- !u!82 &928598644
 AudioSource:

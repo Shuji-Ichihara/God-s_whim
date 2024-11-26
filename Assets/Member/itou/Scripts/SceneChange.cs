@@ -10,6 +10,8 @@ public class SceneChange : MonoBehaviour
     GameObject ManageObject;
     FadeScene fadeSceneManager;
     public bool Happyend;
+    //目時追加
+    public bool _backButton;
     int ChangeClick;
     // Start is called before the first frame update
     void Start()
@@ -50,16 +52,17 @@ public class SceneChange : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == SceneName[1])
         {
-            if (Happyend == true)
+            //目時改定(シーン遷移の分岐条件を変更)
+            if (_backButton == false)
             {
                 //SceneFadeManagerの中のフェードアウト開始関数を呼び出し
-                fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[3]);
-                Happyend = false;
+                fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[2]);                
             }
-            else if (Happyend == false)
+            else if (_backButton == true)
             {
                 //SceneFadeManagerの中のフェードアウト開始関数を呼び出し
-                fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[2]);
+                fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[0]);
+                _backButton = false;
             }
         }
         else if (SceneManager.GetActiveScene().name == SceneName[0])
@@ -75,9 +78,21 @@ public class SceneChange : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == SceneName[3])
         {
+            //目時改定(シーン遷移の分岐条件を変更)
+            if (_backButton == false)
+            {
+                //SceneFadeManagerの中のフェードアウト開始関数を呼び出し
+                fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[0]);
+            }
+            else if (_backButton == true)
+            {
+                //SceneFadeManagerの中のフェードアウト開始関数を呼び出し
+                fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[2]);
+                _backButton = false;
+            }
             //SceneFadeManagerの中のフェードアウト開始関数を呼び出し
-            fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[0]);
-            fadeSceneManager.Destorycount += 1;
+            //fadeSceneManager.fadeOutStart(0, 0, 0, 0, SceneName[0]);
+            //fadeSceneManager.Destorycount += 1;
         }
     }
 }
