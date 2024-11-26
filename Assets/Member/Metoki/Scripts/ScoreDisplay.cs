@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _minuteText;
     [SerializeField] private TextMeshProUGUI milestoneText;   // 節目メッセージ表示用
 
     private void Start()
@@ -25,7 +26,8 @@ public class ScoreDisplay : MonoBehaviour
     {
         if (ExsanpleScore.Instance != null)
         {
-            scoreText.text = "Score: " + ExsanpleScore.Instance.GetScore().ToString();
+            _scoreText.text = "Score: " + ExsanpleScore.Instance.GetScore().ToString();
+            _minuteText.text = ExsanpleScore.Instance.GetScore().ToString() + "M";
         }
     }
 
