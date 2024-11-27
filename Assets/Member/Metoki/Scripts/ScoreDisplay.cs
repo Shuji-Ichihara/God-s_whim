@@ -11,10 +11,17 @@ public class ScoreDisplay : MonoBehaviour
 
     private void Update()
     {
+        //↓ExsanpleScoreは仮に作ったスコア処理なので変える場合
+        //ExsanpleScoreの部分も変えてほしいです。
         if (ExsanpleScore.Instance != null)
         {
-            _scoreText.text = "Score: " + ExsanpleScore.Instance.GetScore().ToString();
-            _minuteText.text = ExsanpleScore.Instance.GetScore().ToString() + "M";
+            int score = ExsanpleScore.Instance.GetScore();
+            _scoreText.text = "Score: " + score.ToString();
+            _minuteText.text = score.ToString() + "M";
+
+            // スコアを保存
+            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.Save();
         }
     }
 
