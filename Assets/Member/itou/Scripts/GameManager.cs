@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public bool _skillcooltime = false;
-    public bool _timestop = false;
+    private bool _timestop = false;
     private float _survivalTime = 0;
     private float _survivalScore = 0;
     private int _survivalResultScore = 0;
@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     public void Timestop()
     {
         _timestop = true;
+    }
+
+    public void Timestopend()
+    {
+        _timestop = false;
     }
 
     public IEnumerator Skillcooltime()

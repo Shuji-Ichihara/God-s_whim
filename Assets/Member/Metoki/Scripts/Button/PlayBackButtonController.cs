@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleButtonController : MonoBehaviour
+public class PlayBackButtonController : MonoBehaviour
 {
     //シーンチェンジスクリプト
     [SerializeField]
@@ -10,7 +10,8 @@ public class TitleButtonController : MonoBehaviour
     // Start is called before the first frame update
     public void OnClick()
     {
+        _sceneChange._backButton = true;
         //次のシーンに遷移
-        _sceneChange.SceneChanges();        
+        _sceneChange.SceneChanges();
     }
 }
