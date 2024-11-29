@@ -36,15 +36,23 @@ public class BackGroundScroll : MonoBehaviour
         float deleteCoodinateX = -23f;
         while (transform.position.x > deleteCoodinateX)
         {
-            // 時間停止フラグが真の場合、while文を待機する
-            // 時を止める処理と演出を行う
-            if (GameManager.Instance._timestop == true)
+            try
             {
-                await TimeStopManager.Instance.StopSeconds(_renderer);
+                // 時間停止フラグが真の場合、while文を待機する
+                // 時を止める処理と演出を行う
+                if (GameManager.Instance.TimeStop == true)
+                {
+                    await TimeStopManager.Instance.StopSeconds(_renderer);
+                }
+                // -方向に移動させる為、Vector3.leftを使用。
+                transform.position += Vector3.left * (backGroundImageWidth / moveSecond) * Time.deltaTime;
+                await UniTask.Yield(cancellationToken: cts.Token);
             }
-            // -方向に移動させる為、Vector3.leftを使用。
-            transform.position += Vector3.left * (Common.BackGroundWidth / moveSecond) * Time.deltaTime;
-            await UniTask.Yield(cancellationToken: cts.Token);
+            catch (MissingComponentException) 
+            { 
+                throw;
+            }
+            if (GameManager.Instance.GameOver == true) return;
         }
         Destroy(gameObject);
     }

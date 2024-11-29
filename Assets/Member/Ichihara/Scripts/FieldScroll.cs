@@ -13,12 +13,13 @@ public class FieldScroll : MonoBehaviour
     {
         // 子オブジェクト全てのSpriteRendererコンポーネントを取得
         // 空のオブジェクトはTransform属性しか保持していない為
-        var parentList = GetComponentsInChildren<Transform>().Where(transform => transform.name != "Gimmick");
+        var parentList = GetComponentsInChildren<Transform>().Where(transform => !transform.name.Contains("Gimmick"));
         for (int i = 0; i < parentList.Count(); i++)
         {
             foreach (var child in parentList)
             {
-                var childList = child.GetComponentsInChildren<SpriteRenderer>().ToList();
+                var childList = child.GetComponents<SpriteRenderer>()
+                                     .ToList();
                 _renderers.AddRange(childList);
             }
         }
@@ -46,15 +47,23 @@ public class FieldScroll : MonoBehaviour
         float deleteCoodinateX = -23f;
         while (transform.position.x > deleteCoodinateX)
         {
-            // 時間停止フラグが真の場合、while文を待機する
-            // 時を止める処理と演出を行う
-            if (GameManager.Instance._timestop == true)
+            try
             {
-                await TimeStopManager.Instance.StopSeconds(_renderers);
+                // 時間停止フラグが真の場合、while文を待機する
+                // 時を止める処理と演出を行う
+                if (GameManager.Instance.TimeStop == true)
+                {
+                    await TimeStopManager.Instance.StopSeconds(_renderers);
+                }
+                // -方向に移動させる為、Vector3.leftを使用。
+                transform.position += Vector3.left * (Common.StandardValue * Common.FieldWidth / moveSecond) * Time.deltaTime;
+                await UniTask.Yield(cancellationToken: cts.Token);
             }
-            // -方向に移動させる為、Vector3.leftを使用。
-            transform.position += Vector3.left * (Common.StandardValue * Common.FieldWidth / moveSecond) * Time.deltaTime;
-            await UniTask.Yield(cancellationToken: cts.Token);
+            catch (MissingComponentException)
+            {
+                throw;
+            }
+            if (GameManager.Instance.GameOver == true) return;
         }
         Destroy(gameObject);
     }

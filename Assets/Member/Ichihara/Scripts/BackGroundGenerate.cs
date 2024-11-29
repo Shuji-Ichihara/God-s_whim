@@ -33,31 +33,35 @@ public class BackGroundGenerate : MonoBehaviour
         float forestImageWidth = Common.BackGroundWidth * _backGroundForestImage.gameObject.transform.localScale.x;
         for (int i = 0; i < 2; i++)
         {
-            var skyBackGroundScroll  = Instantiate(_backGroundSkyImage
+            var skyBackGroundScroll = Instantiate(_backGroundSkyImage
                                                  , new Vector3(skyImageWidth * i, 3f, 0f)
                                                  , Quaternion.AngleAxis(180f * i, Vector3.up));
             skyBackGroundScroll.ScrollBackGroundWrap(_baseSkyImageScrollTime);
             var forestBackGroundScroll = Instantiate(_backGroundForestImage
                                                    , new Vector3(forestImageWidth * i, -5f, 0f)
                                                    , Quaternion.AngleAxis(180f * i, Vector3.up));
-            forestBackGroundScroll.ScrollBackGroundWrap (_baseForestImageScrollTime);
+            forestBackGroundScroll.ScrollBackGroundWrap(_baseForestImageScrollTime);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.GameOver == true) return;
+        if (GameManager.Instance.TimeStop == true) return;
         _skyImageScrollTime -= Time.deltaTime;
         _forestImageScrollTime -= Time.deltaTime;
         if (_skyImageScrollTime < 0f)
         {
             GenerateBackGround(in _skyImageGenerateCount, in _skyImageScrollTime, _backGroundSkyImage);
             _skyImageGenerateCount++;
+            _skyImageScrollTime = _baseSkyImageScrollTime;
         }
-        if( _forestImageScrollTime < 0f)
+        if (_forestImageScrollTime < 0f)
         {
             GenerateBackGround(in _forestImageGenerateCount, in _forestImageScrollTime, _backGroundForestImage);
             _forestImageGenerateCount++;
+            _forestImageScrollTime = _baseForestImageScrollTime;
         }
     }
 

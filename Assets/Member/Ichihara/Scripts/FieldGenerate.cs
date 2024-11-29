@@ -44,6 +44,7 @@ public class FieldGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.TimeStop == true) return;
         _scrollTime -= Time.deltaTime;
         if (_scrollTime < 0f)
         {
