@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
-public class FieldGenerateManager : MonoBehaviour
+public class FieldGenerate : MonoBehaviour
 {
     #region Fields
     // フィールドの種類
     [SerializeField]
-    private Field[] _fieldObjects = { };
+    private FieldScroll[] _fieldObjects = { };
     // フィールドオブジェクトがカメラ外に移動する秒数
-    public float ScrollTime => _baseScrollTime;
     [SerializeField]
     private float _baseScrollTime = 5f;
     // 経過秒数をキャッシュ
