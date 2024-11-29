@@ -2,9 +2,9 @@
 
 public class Bomb : MonoBehaviour
 {
+   
     private void OnCollisionEnter2D(Collision2D other)
-    {
-        // 破壊可能オブジェクトの場合は自身と対象のオブジェクトを破棄する
+    {// 破壊可能オブジェクトの場合は自身と対象のオブジェクトを破棄する
         if (other.gameObject.name.Contains("Breakable"))
         {
             Destroy(other.gameObject);
