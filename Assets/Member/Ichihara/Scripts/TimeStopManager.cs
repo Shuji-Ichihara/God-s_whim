@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+ï»¿using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,11 +9,11 @@ public class TimeStopManager : MonoBehaviour
     public static TimeStopManager Instance { get => _instance; }
     private static TimeStopManager _instance;
 
-    // ‚ğ~‚ß‚é•b”
+    // æ™‚ã‚’æ­¢ã‚ã‚‹ç§’æ•°
     [SerializeField, Range(0f, 2f)]
     private float _stopSecondsCount = 1f;
-    // ‚ğ~‚ß‚½‚Ì‰‰o
-    // •ÏX‘O/•ÏXŒã‚Ìƒ}ƒeƒŠƒAƒ‹
+    // æ™‚ã‚’æ­¢ã‚ãŸæ™‚ã®æ¼”å‡º
+    // å¤‰æ›´å‰/å¤‰æ›´å¾Œã®ãƒãƒ†ãƒªã‚¢ãƒ«
     [SerializeField]
     private Material _beforeMaterial = null, _afterMaterial = null;
 
@@ -23,30 +23,40 @@ public class TimeStopManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ‚ğ~‚ß‚éˆ—
+    /// æ™‚ã‚’æ­¢ã‚ã‚‹å‡¦ç†
     /// </summary>
     /// <param name="renderers"></param>
     /// <returns></returns>
     public async UniTask StopSeconds(List<SpriteRenderer> renderers)
     {
-        // ƒ}ƒeƒŠƒAƒ‹‚ğ•ÏX‚·‚é
+        // ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’å¤‰æ›´ã™ã‚‹
         foreach (var renderer in renderers)
         {
             ChangeMaterial(renderer, _afterMaterial);
         }
         await UniTask.WaitForSeconds(_stopSecondsCount, cancellationToken: new CancellationTokenSource().Token);
-        // ƒ}ƒeƒŠƒAƒ‹‚ğŒ³‚É–ß‚·
+        // ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’å…ƒã«æˆ»ã™
         foreach (var renderer in renderers)
         {
             ChangeMaterial(renderer, _beforeMaterial);
         }
     }
 
+    public async UniTask StopSeconds(SpriteRenderer renderer)
+    {
+        // ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’å¤‰æ›´ã™ã‚‹
+        ChangeMaterial(renderer, _afterMaterial);
+        await UniTask.WaitForSeconds(_stopSecondsCount, cancellationToken: new CancellationTokenSource().Token);
+        // ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’å…ƒã«æˆ»ã™
+        ChangeMaterial(renderer, _beforeMaterial);
+
+    }
+
     /// <summary>
-    /// ‚ğ~‚ß‚é‰‰o
+    /// æ™‚ã‚’æ­¢ã‚ã‚‹æ¼”å‡º
     /// </summary>
-    /// <param name="renderer">ƒ}ƒeƒŠƒAƒ‹‚ğ“K—p‚·‚éSpriteRenderer</param>
-    /// <param name="material">•ÏX‚·‚éƒ}ƒeƒŠƒAƒ‹</param>
+    /// <param name="renderer">ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’é©ç”¨ã™ã‚‹SpriteRenderer</param>
+    /// <param name="material">å¤‰æ›´ã™ã‚‹ãƒãƒ†ãƒªã‚¢ãƒ«</param>
     private void ChangeMaterial(SpriteRenderer renderer, Material material)
     {
         renderer.material = material;
