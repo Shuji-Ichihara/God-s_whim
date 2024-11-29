@@ -22,9 +22,11 @@ public class MouseDragGimmickController : MonoBehaviour
     private void OnMouseDrag()
     {
         if (_movableObject == null) return;
+        // ドラッグ中のマウス座標を更新
         Vector3 mouseClickScreenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Vector3 mouseClickWorldPosition = Camera.main.ScreenToWorldPoint(mouseClickScreenPosition);
         float centerOfMouseY = mouseClickWorldPosition.y + transform.localScale.y / Common.Half;
+        // マウス座標に応じてオブジェクトの座標も更新する
         _movableObject.transform.position = new Vector3(mouseClickWorldPosition.x, centerOfMouseY, 0.0f);
     }
 
@@ -62,5 +64,6 @@ public class MouseDragGimmickController : MonoBehaviour
         if (parentObjectName.Contains(Common.HoleGimmickName)) ClearPosition = -1.4f;
         else if (parentObjectName.Contains(Common.NeedleGimmickName)) ClearPosition = 0f;
         else if (parentObjectName.Contains(Common.SlopeGimmickName)) ClearPosition = Common.StandardValue;
+        else if (parentObjectName.Contains(Common.WallGimmickName)) ClearPosition = Common.StandardValue * 1.5f;
     }
 }
