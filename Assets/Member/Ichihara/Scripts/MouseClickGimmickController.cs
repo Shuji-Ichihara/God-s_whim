@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseClickGimmickController : MonoBehaviour
 {
-    // ƒ}ƒEƒXƒNƒŠƒbƒN‚Å”j‰ó‚·‚éƒIƒuƒWƒFƒNƒg
+    // ãƒã‚¦ã‚¹ã‚¯ãƒªãƒƒã‚¯ã§ç ´å£Šã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private GameObject _breakableObject = null;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class MouseClickGimmickController : MonoBehaviour
         RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
         if (hit2d)
         {
-            // ƒIƒuƒWƒFƒNƒg‚ğ”j‰ó
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç ´å£Š
             _breakableObject = hit2d.collider.gameObject;
             Destroy(_breakableObject);
         }
