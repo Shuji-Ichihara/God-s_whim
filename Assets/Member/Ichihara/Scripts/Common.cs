@@ -7,9 +7,13 @@
     // フィールドを構成しているスプライトの横の枚数
     public static readonly int FieldWidth = 14;
     // ギミックの名称
-    public static readonly string HoleGimmickName   = "_Hole";
-    public static readonly string NeedleGimmickName = "_Needle";
-    public static readonly string SlopeGimmickName  = "_Slope";
+    public static readonly string HoleGimmickName       = "_Hole";
+    public static readonly string NeedleGimmickName     = "_Needle";
+    public static readonly string SlopeGimmickName      = "_Slope";
+    public static readonly string WallGimmickName       = "_Wall";
+    public static readonly string DestroyGimmickName    = "_Destroy";
+    // 背景画像の横幅
+    public static readonly float BackGroundWidth = 2.85f;
 
     #endregion
 }
