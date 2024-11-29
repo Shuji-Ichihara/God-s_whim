@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5271800714713945943}
   - component: {fileID: 8638877089468924955}
   m_Layer: 0
-  m_Name: Block_2
+  m_Name: Gimmick_Block_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 7258594708237933800}
   - component: {fileID: 3174351316262250259}
   m_Layer: 0
-  m_Name: Block_4
+  m_Name: Gimmick_Block_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1600,7 +1600,7 @@ GameObject:
   - component: {fileID: 4932167687156650371}
   - component: {fileID: 3703992410958495148}
   m_Layer: 0
-  m_Name: Block_5
+  m_Name: Gimmick_Block_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2099,7 +2099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639381608120923144}
   m_Layer: 0
-  m_Name: Wall_1
+  m_Name: Gimmick_Wall_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2133,7 +2133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67798162866527132}
   m_Layer: 0
-  m_Name: Wall_3
+  m_Name: Gimmick_Wall_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2588,7 +2588,7 @@ GameObject:
   - component: {fileID: 2735401766322093904}
   - component: {fileID: 6749319267936284983}
   m_Layer: 0
-  m_Name: Block_3
+  m_Name: Gimmick_Block_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2671,6 +2671,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4493396540000127759}
   - component: {fileID: 8804717580505912753}
+  - component: {fileID: 4996240514750165031}
+  - component: {fileID: 4521891422118174296}
   m_Layer: 0
   m_Name: Gimmick
   m_TagString: Untagged
@@ -2687,7 +2689,7 @@ Transform:
   m_GameObject: {fileID: 3601284121280555473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 0.8, z: 0}
+  m_LocalPosition: {x: 6.4, y: 2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2739,6 +2741,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &4996240514750165031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601284121280555473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2801f81089bfb474d98ecd6bc5504fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _breakableObject: {fileID: 2342271574206777952}
+--- !u!114 &4521891422118174296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601284121280555473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64da9ef7d8714647abf2c56ebf7fb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3621940310819727349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,8 +3231,8 @@ Transform:
   - {fileID: 5113764164180849472}
   - {fileID: 3864274770939691687}
   - {fileID: 2829941901914311430}
-  - {fileID: 4679144477309501613}
   - {fileID: 4493396540000127759}
+  - {fileID: 4679144477309501613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2176481642090717669
@@ -3682,7 +3709,7 @@ GameObject:
   - component: {fileID: 8389989087784929879}
   - component: {fileID: 8022799893165494028}
   m_Layer: 0
-  m_Name: Block_1
+  m_Name: Gimmick_Block_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4018,7 +4045,7 @@ GameObject:
   - component: {fileID: 1557936557042407327}
   - component: {fileID: 4615584030196931405}
   m_Layer: 0
-  m_Name: Block_2
+  m_Name: Gimmick_Block_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4879,7 +4906,7 @@ GameObject:
   - component: {fileID: 1838038545612819462}
   - component: {fileID: 5495960610912635066}
   m_Layer: 0
-  m_Name: Block_6
+  m_Name: Gimmick_Block_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5333,7 +5360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450148252019801733}
   m_Layer: 0
-  m_Name: Wall_2
+  m_Name: Gimmick_Wall_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5620,7 +5647,7 @@ GameObject:
   - component: {fileID: 5216466449292529578}
   - component: {fileID: 2169075579728353041}
   m_Layer: 0
-  m_Name: Block_6
+  m_Name: Gimmick_Block_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5704,7 +5731,7 @@ GameObject:
   - component: {fileID: 6869842485130329347}
   - component: {fileID: 2129060244294640301}
   m_Layer: 0
-  m_Name: Block_4
+  m_Name: Gimmick_Block_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6074,9 +6101,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2255951784009270756}
   - component: {fileID: 69713058422281759}
-  - component: {fileID: 889902926937841991}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: Gimmick_Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6091,7 +6117,7 @@ Transform:
   m_GameObject: {fileID: 8796313087741757079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6137,7 +6163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 59ec6989cb6919c4d823b77bb3c1c3ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6149,18 +6175,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &889902926937841991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8796313087741757079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2801f81089bfb474d98ecd6bc5504fa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8874816892103721332
 GameObject:
   m_ObjectHideFlags: 0

@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 9057549788741036458}
   - component: {fileID: 431807044183330739}
   m_Layer: 0
-  m_Name: Slope
+  m_Name: Gimmick_Slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1460,7 +1460,7 @@ GameObject:
   - component: {fileID: 1557851594925564639}
   - component: {fileID: 5930613095528392514}
   - component: {fileID: 3066405239970842181}
-  - component: {fileID: -3052249937786816352}
+  - component: {fileID: 6875894865930070213}
   m_Layer: 0
   m_Name: Field_Gimmick_Slope
   m_TagString: Untagged
@@ -1596,7 +1596,7 @@ PolygonCollider2D:
       - {x: 3.2, y: -6.4}
       - {x: 11.2, y: -6.4}
   m_UseDelaunayMesh: 0
---- !u!114 &-3052249937786816352
+--- !u!114 &6875894865930070213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1894628476270445432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df3efb8a9b0cb343b9ca8f03b4f0e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: fd615a3e568c22a43b9927c8f5558b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2091355442864604567
@@ -4082,7 +4082,7 @@ GameObject:
   - component: {fileID: 10660989233350401}
   - component: {fileID: 1269269106388570764}
   m_Layer: 0
-  m_Name: Under
+  m_Name: Gimmick_Under
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4586,7 +4586,7 @@ GameObject:
   - component: {fileID: 4455224600272748981}
   - component: {fileID: 8645599044438514514}
   m_Layer: 0
-  m_Name: Surface
+  m_Name: Gimmick_Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
