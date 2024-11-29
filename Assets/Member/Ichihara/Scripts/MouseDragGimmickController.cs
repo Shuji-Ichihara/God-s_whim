@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MouseDragGimmickController : MonoBehaviour
 {
+    // マウスドラッグで動かすオブジェクト
     private GameObject _movableObject = null;
 
     // Start is called before the first frame update

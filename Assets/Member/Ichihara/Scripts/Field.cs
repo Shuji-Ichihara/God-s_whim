@@ -1,9 +1,29 @@
 ﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 
 public class Field : MonoBehaviour
 {
+    //
+    private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
+
+    private void Start()
+    {
+        // 子オブジェクト全てのSpriteRendererコンポーネントを取得
+        // 空のオブジェクトはTransform属性しか保持していない為
+        var parentList = GetComponentsInChildren<Transform>().Where(transform => transform.name != "Gimmick");
+        for (int i = 0; i < parentList.Count(); i++)
+        {
+            foreach (var child in parentList)
+            {
+                var childList = child.GetComponentsInChildren<SpriteRenderer>().ToList();
+                _renderers.AddRange(childList);
+            }
+        }
+    }
+
     /// <summary>
     /// ScrollFieldのラッパー関数
     /// </summary>
@@ -26,6 +46,12 @@ public class Field : MonoBehaviour
         float deleteCoodinateX = -23f;
         while (transform.position.x > deleteCoodinateX)
         {
+            // 時間停止フラグが真の場合、while文を待機する
+            // 時を止める処理と演出を行う
+            if (GameManager.Instance._timestop == true)
+            {
+                await TimeStopManager.Instance.StopSeconds(_renderers);
+            }
             // -方向に移動させる為、Vector3.leftを使用。
             transform.position += Vector3.left * (Common.StandardValue * Common.FieldWidth / moveSecond) * Time.deltaTime;
             await UniTask.Yield(cancellationToken: cts.Token);
