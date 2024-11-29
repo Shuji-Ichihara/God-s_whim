@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 
-public class Field : MonoBehaviour
+public class FieldScroll : MonoBehaviour
 {
     //
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
