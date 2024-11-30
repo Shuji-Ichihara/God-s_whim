@@ -10,6 +10,8 @@ public class ResultScoreMinuteText : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayBGM(BGMType.ResultBGM);
+
         // •Û‘¶‚³‚ê‚½ƒXƒRƒA‚ğæ“¾
         int savedScore = PlayerPrefs.GetInt("Score", 0);
 

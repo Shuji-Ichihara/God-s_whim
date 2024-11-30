@@ -11,6 +11,7 @@ public class TitleButtonController : MonoBehaviour
     public void OnClick()
     {
         //Ÿ‚ÌƒV[ƒ“‚É‘JˆÚ
+        AudioManager.Instance.PlaySE(SEType.Button);
         _sceneChange.SceneChanges();        
     }
 }

@@ -10,6 +10,7 @@ public class PlayBackButtonController : MonoBehaviour
     // Start is called before the first frame update
     public void OnClick()
     {
+        AudioManager.Instance.PlaySE(SEType.Button);
         _sceneChange._backButton = true;
         //Ÿ‚ÌƒV[ƒ“‚É‘JˆÚ
         _sceneChange.SceneChanges();
