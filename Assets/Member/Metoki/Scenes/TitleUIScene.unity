@@ -208,12 +208,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2519152266601884723, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
+      propertyPath: SceneName.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519152266601884723, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
       propertyPath: SceneName.Array.data[0]
       value: TitleUIScene
       objectReference: {fileID: 0}
     - target: {fileID: 2519152266601884723, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
       propertyPath: SceneName.Array.data[1]
       value: TurtrialUIScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519152266601884723, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
+      propertyPath: SceneName.Array.data[2]
+      value: PlayUIScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519152266601884723, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
+      propertyPath: SceneName.Array.data[3]
+      value: ResultUIScene
       objectReference: {fileID: 0}
     - target: {fileID: 3751568069039053295, guid: d212e8750e0ae6f4ba526c1d927a6405, type: 3}
       propertyPath: m_Name
@@ -448,7 +460,7 @@ GameObject:
   - component: {fileID: 442407270}
   - component: {fileID: 442407269}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TitleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +527,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &442407272
 RectTransform:
@@ -549,7 +561,7 @@ GameObject:
   - component: {fileID: 583200015}
   - component: {fileID: 583200014}
   - component: {fileID: 583200013}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,6 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneChange: {fileID: 178162687}
+  _targetCanvas: {fileID: 442407271}
 --- !u!1 &1330360127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1020,7 @@ GameObject:
   - component: {fileID: 1330360130}
   - component: {fileID: 1330360129}
   - component: {fileID: 1330360128}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SceneChangeObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1103,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1330360132
 RectTransform:

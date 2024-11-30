@@ -11,6 +11,10 @@ public class BackButtonController : MonoBehaviour
     //表示用のUI
     [SerializeField]
     private Image[] _turtrialImages;
+    [SerializeField]
+    private Canvas _targetCanvas;
+
+    private int newSortingOrder = 0;
     // Start is called before the first frame update
     public void OnClick()
     {
@@ -21,6 +25,7 @@ public class BackButtonController : MonoBehaviour
         }
         else
         {
+            _targetCanvas.sortingOrder = newSortingOrder;
             _sceneChange._backButton = true;
             //タイトルシーンに遷移
             _sceneChange.SceneChanges();
