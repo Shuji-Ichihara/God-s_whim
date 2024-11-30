@@ -11,6 +11,9 @@ public class NextButtonController : MonoBehaviour
     //表示用のUI
     [SerializeField]
     private Image[] _turtrialImages;
+    [SerializeField]
+    private Canvas _targetCanvas;
+    private int newSortingOrder = 0;
     public void OnClick()
     {
         if (_turtrialImages[0].enabled)
@@ -20,6 +23,7 @@ public class NextButtonController : MonoBehaviour
         }
         else
         {
+            _targetCanvas.sortingOrder = newSortingOrder;
             //プレイシーンに遷移
             _sceneChange.SceneChanges();
         }
